@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alumno;
+use App\Models\alumno;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -25,7 +25,7 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $alumnos = Alumno::paginate(5);
+        $alumnos = alumno::paginate(5);
         //
         //return view("Alumnos/index",['alumnos'=>$alumnos]);
         //ahora existe la variable alumno en la pagina index
@@ -40,8 +40,8 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        $alumnos = Alumno::paginate(5);
-        $alumno = new Alumno();
+        $alumnos = alumno::paginate(5);
+        $alumno = new alumno();
         $accion="C";
         $txtbtn="guardar";
         $des="";
@@ -55,17 +55,17 @@ class AlumnoController extends Controller
     {
         //aun no grabamos
        $val = $request->validate($this->val);
-       Alumno::create($val);                        //"variable","valor"
+       alumno::create($val);                        //"variable","valor"
         return redirect()->route("alumnos.index")->with("mensaje","se insertó correctamente");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Alumno $alumno)
+    public function show(alumno $alumno)
     {
         
-        $alumnos = Alumno::paginate(5);
+        $alumnos = alumno::paginate(5);
         $accion="D";
         $txtbtn="confirmar la eliminacion";
         $des="disabled";
@@ -75,10 +75,10 @@ class AlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Alumno $alumno)
+    public function edit(alumno $alumno)
     {
         
-        $alumnos = Alumno::paginate(5);
+        $alumnos = alumno::paginate(5);
         $accion="E";
         $txtbtn="actualizar";
         $des="";
@@ -90,7 +90,7 @@ class AlumnoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, alumno $alumno)
     {
         $val = $request->validate($this->val);
 
@@ -103,7 +103,7 @@ class AlumnoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alumno $alumno)
+    public function destroy(alumno $alumno)
     {
         $alumno->delete();
         return redirect()->route('alumnos.index');

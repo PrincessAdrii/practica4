@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Puesto;
+use App\Models\puesto;
 use Illuminate\Http\Request;
 
 class PuestoController extends Controller
@@ -19,7 +19,7 @@ class PuestoController extends Controller
 
     public function index()
     {
-        $puestos= Puesto::paginate(5);
+        $puestos= puesto::paginate(5);
         return view("Puestos/index",compact("puestos"));
 
     }
@@ -27,8 +27,8 @@ class PuestoController extends Controller
 
     public function create()
     {
-        $puestos= Puesto::paginate(5); 
-        $puesto=new Puesto;
+        $puestos= puesto::paginate(5); 
+        $puesto=new puesto;
         $accion='C';
         $txtbtn='Guardar';
         $des='';
@@ -46,9 +46,9 @@ class PuestoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Puesto $puesto)
+    public function show(puesto $puesto)
     {
-        $puestos=Puesto::Paginate(5);
+        $puestos=puesto::Paginate(5);
         $accion='D';
         $txtbtn='confirmar la eliminacion';
         $des='disabled';
@@ -56,9 +56,9 @@ class PuestoController extends Controller
     }
 
    
-    public function edit(Puesto $puesto)
+    public function edit(puesto $puesto)
     {
-        $puestos=Puesto::Paginate(5);
+        $puestos=puesto::Paginate(5);
         $accion='E';
         $txtbtn='actualizar';
         $des='';
@@ -66,7 +66,7 @@ class PuestoController extends Controller
     }
 
     
-    public function update(Request $request, Puesto $puesto)
+    public function update(Request $request, puesto $puesto)
     {
         $puesto->update($request->all());
         return redirect()->route('puestos.index');
@@ -75,7 +75,7 @@ class PuestoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Puesto $puesto)
+    public function destroy(puesto $puesto)
     {
         $puesto->delete();
         return redirect()->route('puestos.index');

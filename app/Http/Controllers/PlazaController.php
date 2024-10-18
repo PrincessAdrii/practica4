@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Plaza;
+use App\Models\plaza;
 use Illuminate\Http\Request;
 
 class PlazaController extends Controller
@@ -18,7 +18,7 @@ class PlazaController extends Controller
     
     public function index()
     {
-        $plazas= Plaza::paginate(5);
+        $plazas= plaza::paginate(5);
         return view("Plazas/index",compact("plazas"));
     }
 
@@ -27,8 +27,8 @@ class PlazaController extends Controller
      */
     public function create()
     {
-        $plazas= Plaza::paginate(5); 
-        $plaza=new Plaza;
+        $plazas= plaza::paginate(5); 
+        $plaza=new plaza;
         $accion='C';
         $txtbtn='Guardar';
         $des='';
@@ -41,16 +41,16 @@ class PlazaController extends Controller
     public function store(Request $request)
     {
         $val= $request->validate($this->val);
-        Plaza::create($val);
+        plaza::create($val);
         return redirect()->route('plazas.index')->with("mensaje",'se inserto correctamente.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Plaza $plaza)
+    public function show(plaza $plaza)
     {
-        $plazas=Plaza::Paginate(5);
+        $plazas=plaza::Paginate(5);
         $accion='D';
         $txtbtn='confirmar la eliminacion';
         $des='disabled';
@@ -60,9 +60,9 @@ class PlazaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Plaza $plaza)
+    public function edit(plaza $plaza)
     {
-        $plazas=Plaza::Paginate(5);
+        $plazas=plaza::Paginate(5);
         $accion='E';
         $txtbtn='actualizar';
         $des='';
@@ -72,7 +72,7 @@ class PlazaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Plaza $plaza)
+    public function update(Request $request, plaza $plaza)
     {
         $val= $request->validate($this->val);
         $plaza->update($val);
@@ -82,7 +82,7 @@ class PlazaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Plaza $plaza)
+    public function destroy(plaza $plaza)
     {
         $plaza->delete();
         return redirect()->route("plazas.index");

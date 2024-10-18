@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Alumno;
+use App\Models\alumno;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -13,6 +13,6 @@ class AlumnoSeeder extends Seeder
      */
     public function run(): void
     {
-        Alumno::factory(20)->create();
+        alumno::factory(20)->create();
     }
 }

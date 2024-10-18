@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Puesto;
+use App\Models\puesto;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -13,6 +13,6 @@ class PuestoSeeder extends Seeder
      */
     public function run(): void
     {
-        Puesto::factory(20)->create();
+        puesto::factory(20)->create();
     }
 }

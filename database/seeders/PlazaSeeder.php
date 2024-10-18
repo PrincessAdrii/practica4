@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Plaza;
+use App\Models\plaza;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -13,6 +13,6 @@ class PlazaSeeder extends Seeder
      */
     public function run(): void
     {
-        Plaza::factory(20)->create();
+        plaza::factory(20)->create();
     }
 }

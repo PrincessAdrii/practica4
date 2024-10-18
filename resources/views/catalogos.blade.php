@@ -34,21 +34,23 @@ nav a:hover {
 <body>
   <div class="d-flex">
     <nav class="nav flex-column bg-light p-3" style="width: 200px; height: 100vh;">
-        <a class="nav-link active" href="#">Periodos</a>
-        <a class="nav-link" href="#">Plazas</a>
-        <a class="nav-link" href="#">Puestos</a>
+        <a class="nav-link active" href="">Periodos</a>
+        <a class="nav-link" href="{{route('plazas.index')}}">Plazas</a>
+        <a class="nav-link" href="{{route('puestos.index')}}">Puestos</a>
         <a class="nav-link" href="#">Personal</a>
         <a class="nav-link" href="#">Deptos.</a>
         <a class="nav-link" href="#">Carreras</a>
         <a class="nav-link" href="#">Retículas</a>
         <a class="nav-link" href="#">Materias</a>
-        <a class="nav-link" href="#">Alumnos</a>
+        <a class="nav-link" href="{{route('alumnos.index')}}">Alumnos</a>
         
     </nav>
 
     <div class="flex-grow-1 p-4">
-        <h1>Contenido principal</h1>
-        <p>Aquí se muestra el contenido relacionado con las opciones del menú.</p>
+    
+      
+    @yield("contenido")
+        
     </div>
 </div>
 </body>

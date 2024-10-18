@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Periodos</h1>
+    <h1>Lo eliminaste ya</h1>
 </body>
 </html>
